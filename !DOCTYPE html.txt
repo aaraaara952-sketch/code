@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Couple's Corner 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6f0;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #d63384;
+    }
+    .quote-box, .reminder-box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 300px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 90%;
+    }
+    button {
+      background: #d63384;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #a61e5f;
+    }
+  </style>
+</head>
+<body>
+  <h1>💞 Our Special Website 💞</h1>
+
+  <div class="quote-box">
+    <h2>Add a Quote/Message</h2>
+    <textarea id="quoteInput" placeholder="Write something sweet..."></textarea>
+    <button onclick="addQuote()">Save Quote</button>
+    <div id="quotesList"></div>
+  </div>
+
+  <div class="reminder-box">
+    <h2>Add a Reminder</h2>
+    <input type="date" id="reminderDate">
+    <input type="text" id="reminderText" placeholder="Reminder text...">
+    <button onclick="addReminder()">Save Reminder</button>
+    <div id="remindersList"></div>
+  </div>
+
+  <script>
+    function addQuote() {
+      let text = document.getElementById("quoteInput").value;
+      if(text) {
+        let div = document.createElement("p");
+        div.textContent = "💌 " + text;
+        document.getElementById("quotesList").appendChild(div);
+        document.getElementById("quoteInput").value = "";
+      }
+    }
+
+    function addReminder() {
+      let date = document.getElementById("reminderDate").value;
+      let text = document.getElementById("reminderText").value;
+      if(date && text) {
+        let div = document.createElement("p");
+        div.textContent = "📅 " + date + " - " + text;
+        document.getElementById("remindersList").appendChild(div);
+        document.getElementById("reminderDate").value = "";
+        document.getElementById("reminderText").value = "";
+      }
+    }
+  </script>
+</body>
+</html>
